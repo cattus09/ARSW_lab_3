@@ -18,6 +18,17 @@ El consumo se debe a que se intent eliminar datos de la memoria cuando esta vaci
 La clase responsable de esto es Consumer.
 
 2. Haga los ajustes necesarios para que la solución use más eficientemente la CPU, teniendo en cuenta que -por ahora- la producción es lenta y el consumo es rápido. Verifique con JVisualVM que el consumo de CPU se reduzca.
+
+Al solucionarlo podemos preciar una disminucion en el consumo de la CPU com se muestra en la siguiente imagen:
+
+![](./img/fotos/ARSW_LAB3_FOTO_PUNTO2_1.png)
+
+La solucion que encontramos fue usar synchronized con su llave queue, ya que este es usado tanto por Consumer como por Producer, esto evita un sobre uso
+de la memorio al tratar de eliminar datos vacios.
+
+![](./img/fotos/ARSW_LAB3_FOTO_PUNTO2_2.png)
+
+
 3. Haga que ahora el productor produzca muy rápido, y el consumidor consuma lento. Teniendo en cuenta que el productor conoce un límite de Stock (cuantos elementos debería tener, a lo sumo en la cola), haga que dicho límite se respete. Revise el API de la colección usada como cola para ver cómo garantizar que dicho límite no se supere. Verifique que, al poner un límite pequeño para el 'stock', no haya consumo alto de CPU ni errores.
 
 ##### Parte II. – Avance para el jueves, antes de clase.
