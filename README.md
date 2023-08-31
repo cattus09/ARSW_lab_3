@@ -13,6 +13,10 @@ Control de hilos con wait/notify. Productor/consumidor.
 
 ![](./img/fotos/ARSW_LAB3_FOTO_PUNTO1_1.png)
 
+El consumo se debe a que se intent eliminar datos de la memoria cuando esta vacia.
+
+La clase responsable de esto es Consumer.
+
 2. Haga los ajustes necesarios para que la solución use más eficientemente la CPU, teniendo en cuenta que -por ahora- la producción es lenta y el consumo es rápido. Verifique con JVisualVM que el consumo de CPU se reduzca.
 3. Haga que ahora el productor produzca muy rápido, y el consumidor consuma lento. Teniendo en cuenta que el productor conoce un límite de Stock (cuantos elementos debería tener, a lo sumo en la cola), haga que dicho límite se respete. Revise el API de la colección usada como cola para ver cómo garantizar que dicho límite no se supere. Verifique que, al poner un límite pequeño para el 'stock', no haya consumo alto de CPU ni errores.
 
