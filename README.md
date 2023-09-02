@@ -13,9 +13,12 @@ Control de hilos con wait/notify. Productor/consumidor.
 
 ![](./img/fotos/ARSW_LAB3_FOTO_PUNTO1_1.png)
 
+**
+*La clase responsable de esto es Consumer.*
+
 El consumo se debe a que se intent eliminar datos de la memoria cuando esta vacia.
 
-La clase responsable de esto es Consumer.
+
 
 2. Haga los ajustes necesarios para que la solución use más eficientemente la CPU, teniendo en cuenta que -por ahora- la producción es lenta y el consumo es rápido. Verifique con JVisualVM que el consumo de CPU se reduzca.
 
