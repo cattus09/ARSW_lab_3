@@ -13,7 +13,7 @@ Control de hilos con wait/notify. Productor/consumidor.
 
 ![](./img/fotos/ARSW_LAB3_FOTO_PUNTO1_1.png)
 
-*Podemos ver que el consumo de CPU ronda entre el 35%*
+*Podemos ver que el consumo de CPU ronda entre el 30-35%*
 
 *La clase responsable de esto es Consumer.*
 
