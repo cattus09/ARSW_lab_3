@@ -34,6 +34,96 @@ Control de hilos con wait/notify. Productor/consumidor.
 
 3. Haga que ahora el productor produzca muy rápido, y el consumidor consuma lento. Teniendo en cuenta que el productor conoce un límite de Stock (cuantos elementos debería tener, a lo sumo en la cola), haga que dicho límite se respete. Revise el API de la colección usada como cola para ver cómo garantizar que dicho límite no se supere. Verifique que, al poner un límite pequeño para el 'stock', no haya consumo alto de CPU ni errores.
 
+```
+package edu.eci.arst.concprg.prodcons;
+
+import java.util.Queue;
+
+/**
+ *
+ * @author hcadavid
+ */
+public class Consumer extends Thread{
+    
+    private Queue<Integer> queue;
+    
+    
+    public Consumer(Queue<Integer> queue){
+        this.queue=queue;        
+    }
+    
+    @Override
+    public void run() {
+        while (true) {
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            synchronized(queue){                
+                if (queue.size() > 0) { 
+                    int elem=queue.poll();
+                    System.out.println("Consumer consumes "+elem);                                
+                }
+            }
+        }
+    }
+}
+```
+
+*Aqui el consumidor consume muy lento ya que su periodo de espera para consumir es de 5 segundos*
+
+
+```
+package edu.eci.arst.concprg.prodcons;
+
+import java.util.Queue;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author hcadavid
+ */
+public class Producer extends Thread {
+
+    private Queue<Integer> queue = null;
+
+    private int dataSeed = 0;
+    private Random rand=null;
+    private final long stockLimit;
+
+    public Producer(Queue<Integer> queue,long stockLimit) {
+        this.queue = queue;
+        rand = new Random(System.currentTimeMillis());
+        this.stockLimit=stockLimit;
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            if(queue.size()<stockLimit){
+                dataSeed = dataSeed + rand.nextInt(100);
+                System.out.println("Producer added " + dataSeed);
+                queue.add(dataSeed);
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Producer.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+    }
+}
+
+```
+*Aqui el producer produce relativamente rapido ya que tiene un tiempo de espera de solo 1 segundo entre cada produccion, Al establecer un límite pequeño para el stock, como stockLimit = 5, no deberia haber un alto consumo de CPU y que se respetará el límite de existencias en la cola y que no genere errores.*
+
+
+
 ##### Parte II. – Avance para el jueves, antes de clase.
 
 Sincronización y Dead-Locks.
