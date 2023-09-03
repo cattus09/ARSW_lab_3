@@ -6,6 +6,8 @@ import java.util.Random;
 public class Immortal extends Thread {
 
     private ImmortalUpdateReportCallback updateCallback=null;
+
+    private boolean pause = false;
     
     private int health;
     
@@ -28,7 +30,7 @@ public class Immortal extends Thread {
     }
 
     public void run() {
-
+        
         while (true) {
             Immortal im;
 
@@ -49,6 +51,18 @@ public class Immortal extends Thread {
                 Thread.sleep(1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            }
+
+            if (pause) {
+                synchronized (im) {
+                    try {
+                        im.wait();
+                        pause = false;
+                    } catch (InterruptedException e) {
+    
+                        e.printStackTrace();
+                    }
+                }
             }
 
         }
@@ -79,6 +93,10 @@ public class Immortal extends Thread {
     public String toString() {
 
         return name + "[" + health + "]";
+    }
+
+    public void pause() {
+        pause = true;
     }
 
 }

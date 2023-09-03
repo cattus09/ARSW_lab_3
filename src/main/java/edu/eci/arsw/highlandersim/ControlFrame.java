@@ -88,9 +88,10 @@ public class ControlFrame extends JFrame {
         btnPauseAndCheck.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                /*
-				 * COMPLETAR
-                 */
+                for (Immortal im : immortals) {
+                    im.pause();
+                }
+                
                 int sum = 0;
                 for (Immortal im : immortals) {
                     sum += im.getHealth();
