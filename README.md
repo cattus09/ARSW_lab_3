@@ -145,7 +145,8 @@ Sincronización y Dead-Locks.
 
 3. Ejecute la aplicación y verifique cómo funcionan las opción ‘pause and check’. Se cumple el invariante?.
 
-No lo cumple.
+*No lo cumple. Ya que como la vida default es 100 y los inmortales son 3 en este caso la invariante seria 3 x 100*
+
 ![](./img/fotos/ARSW_LAB3_FOTO_PUNTO2_2.png)
 
 4. Una primera hipótesis para que se presente la condición de carrera para dicha función (pause and check), es que el programa consulta la lista cuyos valores va a imprimir, a la vez que otros hilos modifican sus valores. Para corregir esto, haga lo que sea necesario para que efectivamente, antes de imprimir los resultados actuales, se pausen todos los demás hilos. Adicionalmente, implemente la opción ‘resume’.
