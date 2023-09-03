@@ -141,7 +141,7 @@ Sincronización y Dead-Locks.
 
 *El invariante del juego debe ser la sumatoria de los puntos de vida de todos los jugadores , la cual debe ser constante, por lo que el valor total de puntos de vida debería ser igual a N multiplicado por la cantidad inicial de puntos de vida de cada jugador.*
 
-*La invariante es N*DEFAULT_IMMORTAL_HEALTH.*
+*La invariante es N x DEFAULT_IMMORTAL_HEALTH.*
 
 3. Ejecute la aplicación y verifique cómo funcionan las opción ‘pause and check’. Se cumple el invariante?.
 
