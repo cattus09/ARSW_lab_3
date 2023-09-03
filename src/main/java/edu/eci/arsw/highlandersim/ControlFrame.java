@@ -109,9 +109,9 @@ public class ControlFrame extends JFrame {
 
         btnResume.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                /**
-                 * IMPLEMENTAR
-                 */
+                for(Immortal im : immortals){
+                    im.resumes();
+                }
 
             }
         });

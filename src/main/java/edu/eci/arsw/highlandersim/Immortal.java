@@ -99,4 +99,10 @@ public class Immortal extends Thread {
         pause = true;
     }
 
+    public synchronized void resumes() {
+        pause = false;
+        notifyAll();
+    }
+
+
 }
