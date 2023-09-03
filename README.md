@@ -13,9 +13,13 @@ Control de hilos con wait/notify. Productor/consumidor.
 
 ![](./img/fotos/ARSW_LAB3_FOTO_PUNTO1_1.png)
 
-El consumo se debe a que se intent eliminar datos de la memoria cuando esta vacia.
+*Podemos ver que el consumo de CPU ronda entre el 30-35%*
 
-La clase responsable de esto es Consumer.
+*La clase responsable de esto es Consumer.*
+
+*El consumo se debe en parte a que se intenta consumir de la cola cuando esta vacía, la clase Consumer está esperando que la clase Producer agregue algo a la cola, está constantemente intentando consumir elementos de la cola incluso si el Producer no los está produciendo, por lo que la causa es que la clase Consumer le falta una instrucción de espera o sleep*
+
+
 
 2. Haga los ajustes necesarios para que la solución use más eficientemente la CPU, teniendo en cuenta que -por ahora- la producción es lenta y el consumo es rápido. Verifique con JVisualVM que el consumo de CPU se reduzca.
 
