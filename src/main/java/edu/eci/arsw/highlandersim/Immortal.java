@@ -19,6 +19,8 @@ public class Immortal extends Thread {
 
     private final Random r = new Random(System.currentTimeMillis());
 
+    
+
 
     public Immortal(String name, List<Immortal> immortalsPopulation, int health, int defaultDamageValue, ImmortalUpdateReportCallback ucb) {
         super(name);
@@ -31,22 +33,32 @@ public class Immortal extends Thread {
 
     public void run() {
         
-        while (true) {
-            Immortal im;
-
-            int myIndex = immortalsPopulation.indexOf(this);
-
-            int nextFighterIndex = r.nextInt(immortalsPopulation.size());
-
-            //avoid self-fight
-            if (nextFighterIndex == myIndex) {
-                nextFighterIndex = ((nextFighterIndex + 1) % immortalsPopulation.size());
+        while (health > 0) {
+            synchronized (this) {
+                while (pause) {                      
+                    try {
+                        wait();
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();    
+                    }
+                }
             }
+            Immortal im;
+            synchronized(immortalsPopulation){
 
-            im = immortalsPopulation.get(nextFighterIndex);
+                int myIndex = immortalsPopulation.indexOf(this);
 
-            this.fight(im);
+                int nextFighterIndex = r.nextInt(immortalsPopulation.size());
 
+                //avoid self-fight
+                if (nextFighterIndex == myIndex) {
+                    nextFighterIndex = ((nextFighterIndex + 1) % immortalsPopulation.size());
+                }
+
+                im = immortalsPopulation.get(nextFighterIndex);
+
+                this.fight(im);
+            }
             try {
                 Thread.sleep(1);
             } catch (InterruptedException e) {
