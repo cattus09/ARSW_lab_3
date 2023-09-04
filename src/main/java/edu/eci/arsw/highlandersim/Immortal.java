@@ -44,7 +44,7 @@ public class Immortal extends Thread {
                 }
             }
             Immortal im;
-            synchronized(immortalsPopulation){
+            
 
                 int myIndex = immortalsPopulation.indexOf(this);
 
@@ -58,7 +58,7 @@ public class Immortal extends Thread {
                 im = immortalsPopulation.get(nextFighterIndex);
 
                 this.fight(im);
-            }
+            
             try {
                 Thread.sleep(1);
             } catch (InterruptedException e) {
