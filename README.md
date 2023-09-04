@@ -178,6 +178,15 @@ Sincronización y Dead-Locks.
 	}
 	```
 
+*En el codigo identificamos dos regiones criticas que pueden causar condiciones de carreras, en el metodo run con el valor immortalPopulation y el metodo fight con el valor i2, utilizamos syncronized para proteger los bloques de codigo*
+ 
+![image](https://github.com/cattus09/ARSW_lab_3/assets/98556822/9cf54bc8-94f8-4988-b2af-202a87ef73dd)
+
+![image](https://github.com/cattus09/ARSW_lab_3/assets/98556822/14ee1215-c23f-447c-ae1f-2d84317b3e5d)
+
+
+
+
 7. Tras implementar su estrategia, ponga a correr su programa, y ponga atención a si éste se llega a detener. Si es así, use los programas jps y jstack para identificar por qué el programa se detuvo.
 
 8. Plantee una estrategia para corregir el problema antes identificado (puede revisar de nuevo las páginas 206 y 207 de _Java Concurrency in Practice_).
