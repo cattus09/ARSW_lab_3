@@ -153,10 +153,6 @@ Sincronización y Dead-Locks.
 
 *Funcion implementada*
 
-![image](https://github.com/cattus09/ARSW_lab_3/assets/98556822/4ff6648f-6add-452d-b49b-4bba9cd7ad5a)
-
-![image](https://github.com/cattus09/ARSW_lab_3/assets/98556822/1fa78809-aee7-4176-8bd3-b482072743ed)
-
 
 
 5. Verifique nuevamente el funcionamiento (haga clic muchas veces en el botón). Se cumple o no el invariante?.
