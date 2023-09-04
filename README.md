@@ -151,8 +151,15 @@ Sincronización y Dead-Locks.
 
 4. Una primera hipótesis para que se presente la condición de carrera para dicha función (pause and check), es que el programa consulta la lista cuyos valores va a imprimir, a la vez que otros hilos modifican sus valores. Para corregir esto, haga lo que sea necesario para que efectivamente, antes de imprimir los resultados actuales, se pausen todos los demás hilos. Adicionalmente, implemente la opción ‘resume’.
 
-*Funcion implementada*
+*Funcion Pause and Check y Resume implementadas*
 
+![image](https://github.com/cattus09/ARSW_lab_3/assets/98556822/57b46c4b-53bb-41ee-9b93-667750b07560)
+
+![image](https://github.com/cattus09/ARSW_lab_3/assets/98556822/38048c1f-36a8-4dd7-a611-49400bb1698a)
+
+*Modificamos la clase immortal para controlar la pausa y reanudacion de los hilos*
+
+![image](https://github.com/cattus09/ARSW_lab_3/assets/98556822/90743afe-e8fb-45d2-b6bb-fdeab4cdbf86)
 
 
 5. Verifique nuevamente el funcionamiento (haga clic muchas veces en el botón). Se cumple o no el invariante?.
