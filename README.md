@@ -2,6 +2,7 @@
 ## Escuela Colombiana de Ingeniería
 ### Arquitecturas de Software – ARSW
 
+## ESTUDIANTES: NICOLAS CASTRO JARAMILLO Y SEGIO ANDRES GONZALES
 
 #### Ejercicio – programación concurrente, condiciones de carrera y sincronización de hilos. EJERCICIO INDIVIDUAL O EN PAREJAS.
 
