@@ -217,11 +217,16 @@ Sincronización y Dead-Locks.
 
 
 *Implementamos la funcion de STOP*
+
 ![image](https://github.com/cattus09/ARSW_lab_3/assets/98556822/37ba2a15-a8aa-484b-8dcb-95af339fce75)
 ![image](https://github.com/cattus09/ARSW_lab_3/assets/98556822/bd918efd-71a0-4642-b265-66236d84a9c4)
+
 *Modificamos el metodo run de Immortal*
+
 ![image](https://github.com/cattus09/ARSW_lab_3/assets/98556822/e80f555c-53f9-45fa-9a41-63f6ce3a088a)
+
 *Probamos la ejecucion*
+
 ![image](https://github.com/cattus09/ARSW_lab_3/assets/98556822/47bc9114-adb8-402c-95e3-12f1b9858619)
 
 
