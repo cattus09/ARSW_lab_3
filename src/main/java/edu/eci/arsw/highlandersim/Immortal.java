@@ -8,6 +8,7 @@ public class Immortal extends Thread {
     private ImmortalUpdateReportCallback updateCallback=null;
 
     private boolean pause = false;
+    private boolean stop = false;
     
     private int health;
     
@@ -33,7 +34,7 @@ public class Immortal extends Thread {
 
     public void run() {
         
-        while (health > 0) {
+        while (health > 0 && !stop) {
             synchronized (this) {
                 while (pause) {                      
                     try {
@@ -115,6 +116,10 @@ public class Immortal extends Thread {
     public synchronized void resumes() {
         pause = false;
         notifyAll();
+    }
+
+    public void stopThread(){
+        stop = true;
     }
 
 

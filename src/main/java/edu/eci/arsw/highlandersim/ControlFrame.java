@@ -26,6 +26,7 @@ public class ControlFrame extends JFrame {
 
     private static final int DEFAULT_IMMORTAL_HEALTH = 100;
     private static final int DEFAULT_DAMAGE_VALUE = 10;
+    private volatile boolean stopSimulation = false;
 
     private JPanel contentPane;
 
@@ -115,6 +116,9 @@ public class ControlFrame extends JFrame {
 
         toolBar.add(btnResume);
 
+
+        
+
         JLabel lblNumOfImmortals = new JLabel("num. of immortals:");
         toolBar.add(lblNumOfImmortals);
 
@@ -123,9 +127,23 @@ public class ControlFrame extends JFrame {
         toolBar.add(numOfImmortals);
         numOfImmortals.setColumns(10);
 
+
+
         JButton btnStop = new JButton("STOP");
         btnStop.setForeground(Color.RED);
+        btnStop.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                stopSimulation = true;
+                for (Immortal im : immortals) {
+                    im.stopThread(); // Interrumpir cada hilo
+                }
+                JOptionPane.showMessageDialog(null, "Operación detenida");
+            }
+        });
         toolBar.add(btnStop);
+
+
+
 
         scrollPane = new JScrollPane();
         contentPane.add(scrollPane, BorderLayout.CENTER);
