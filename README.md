@@ -198,6 +198,16 @@ Sincronización y Dead-Locks.
 
 9. Una vez corregido el problema, rectifique que el programa siga funcionando de manera consistente cuando se ejecutan 100, 1000 o 10000 inmortales. Si en estos casos grandes se empieza a incumplir de nuevo el invariante, debe analizar lo realizado en el paso 4.
 
+![image](https://github.com/cattus09/ARSW_lab_3/assets/98556822/5605f580-b7ad-4164-980f-4953657f9078)
+
+
+![image](https://github.com/cattus09/ARSW_lab_3/assets/98556822/25f16bc4-e885-42d0-82e0-da7df9a6e0b0)
+
+
+![image](https://github.com/cattus09/ARSW_lab_3/assets/98556822/cfd2d7ec-0ed8-4fc5-b343-5c2964b90957)
+
+
+
 10. Un elemento molesto para la simulación es que en cierto punto de la misma hay pocos 'inmortales' vivos realizando peleas fallidas con 'inmortales' ya muertos. Es necesario ir suprimiendo los inmortales muertos de la simulación a medida que van muriendo. Para esto:
 	* Analizando el esquema de funcionamiento de la simulación, esto podría crear una condición de carrera? Implemente la funcionalidad, ejecute la simulación y observe qué problema se presenta cuando hay muchos 'inmortales' en la misma. Escriba sus conclusiones al respecto en el archivo RESPUESTAS.txt.
 	* Corrija el problema anterior __SIN hacer uso de sincronización__, pues volver secuencial el acceso a la lista compartida de inmortales haría extremadamente lenta la simulación.
