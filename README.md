@@ -213,6 +213,15 @@ Sincronización y Dead-Locks.
 	* Analizando el esquema de funcionamiento de la simulación, esto podría crear una condición de carrera? Implemente la funcionalidad, ejecute la simulación y observe qué problema se presenta cuando hay muchos 'inmortales' en la misma. Escriba sus conclusiones al respecto en el archivo RESPUESTAS.txt.
 	* Corrija el problema anterior __SIN hacer uso de sincronización__, pues volver secuencial el acceso a la lista compartida de inmortales haría extremadamente lenta la simulación.
 
+*Separamos los inmortales de vivos y muertos en dos listas separadas, cuando tienen vida 0 los eliminamos de los inmortales vivos y los agregamos a los muertos y solo iteramos sobre la lista de inmortales vivos para evitar utilizar sincronizacion*
+
+![image](https://github.com/cattus09/ARSW_lab_3/assets/98556822/a02dd28d-c47d-445e-84f8-4e2024f13187)
+![image](https://github.com/cattus09/ARSW_lab_3/assets/98556822/2cd66bc3-86c7-4c83-9167-a7babf4b4f23)
+
+
+
+
+
 11. Para finalizar, implemente la opción STOP.
 
 
