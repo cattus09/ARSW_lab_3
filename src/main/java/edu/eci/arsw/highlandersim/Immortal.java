@@ -15,7 +15,7 @@ public class Immortal extends Thread {
     private int defaultDamageValue;
 
     private final List<Immortal> immortalsPopulation;
-
+    private final List<Immortal> deadImmortals;
     private final String name;
 
     private final Random r = new Random(System.currentTimeMillis());
@@ -23,11 +23,12 @@ public class Immortal extends Thread {
     
 
 
-    public Immortal(String name, List<Immortal> immortalsPopulation, int health, int defaultDamageValue, ImmortalUpdateReportCallback ucb) {
+    public Immortal(String name, List<Immortal> immortalsPopulation, List<Immortal> deadImmortals,int health, int defaultDamageValue, ImmortalUpdateReportCallback ucb) {
         super(name);
         this.updateCallback=ucb;
         this.name = name;
         this.immortalsPopulation = immortalsPopulation;
+        this.deadImmortals = deadImmortals;
         this.health = health;
         this.defaultDamageValue=defaultDamageValue;
     }
@@ -79,19 +80,28 @@ public class Immortal extends Thread {
             }
 
         }
-
+        synchronized (immortalsPopulation) {
+            immortalsPopulation.remove(this);
+        }
+        // Agrega al "inmortal" a la lista de "inmortales" muertos
+        synchronized (deadImmortals) {
+            deadImmortals.add(this);
+        }
     }
 
     public void fight(Immortal i2) {
-        synchronized(i2){
-            if (i2.getHealth() > 0) {
-                i2.changeHealth(i2.getHealth() - defaultDamageValue);
-                this.health += defaultDamageValue;
-                updateCallback.processReport("Fight: " + this + " vs " + i2+"\n");
-            } else {
-                updateCallback.processReport(this + " says:" + i2 + " is already dead!\n");
+        synchronized(immortalsPopulation){
+            synchronized(i2){
+                if (i2.getHealth() > 0) {
+                    i2.changeHealth(i2.getHealth() - defaultDamageValue);
+                    this.health += defaultDamageValue;
+                    updateCallback.processReport("Fight: " + this + " vs " + i2+"\n");
+                } else {
+                    updateCallback.processReport(this + " says:" + i2 + " is already dead!\n");
+
             }
         }
+    }
 
     }
 
