@@ -83,14 +83,14 @@ public class Immortal extends Thread {
         synchronized (immortalsPopulation) {
             immortalsPopulation.remove(this);
         }
-        // Agrega al "inmortal" a la lista de "inmortales" muertos
+
         synchronized (deadImmortals) {
             deadImmortals.add(this);
         }
     }
 
     public void fight(Immortal i2) {
-        synchronized(immortalsPopulation){
+        
             synchronized(i2){
                 if (i2.getHealth() > 0) {
                     i2.changeHealth(i2.getHealth() - defaultDamageValue);
@@ -100,7 +100,7 @@ public class Immortal extends Thread {
                     updateCallback.processReport(this + " says:" + i2 + " is already dead!\n");
 
             }
-        }
+        
     }
 
     }

@@ -1,0 +1,2 @@
+PUNTO 10: Cuando hay muchos inmortales en la misma  puede surgir 
+un problema de rendimiento debido a la enorme cantidad de hilos en ejecucion
