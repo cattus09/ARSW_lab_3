@@ -123,7 +123,7 @@ public class Producer extends Thread {
 ```
 *Aqui el producer produce relativamente rapido ya que tiene un tiempo de espera de solo 1 segundo entre cada produccion, Al establecer un límite pequeño para el stock, como stockLimit = 5, no deberia haber un alto consumo de CPU y que se respetará el límite de existencias en la cola y que no genere errores.*
 
-
+![](./img/fotos/ARSW_LAB3_FOTO_PUNTO3_1.png)
 
 ##### Parte II. – Avance para el jueves, antes de clase.
 
